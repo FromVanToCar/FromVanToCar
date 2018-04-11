@@ -24,11 +24,17 @@
   <%=image_tag user_pic, size:60 %>
 </p>
 
+<br>
+<button onclick="contact-form()">Contact</button>
+</br>
+</br>
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
 <%= link_to 'Back', vehicles_path %>
 
-<div></div>
-<p>Contact</p>
+
+<div id="contact-form" style="display:none;">
+</br>
+
 <%= form_tag contact_path do %>
 <%= text_field_tag :message, nil, placeholder: "Your message" %><br />
 <%= text_field_tag :detail, nil, placeholder: "Something specific to say?" %><br />
@@ -36,25 +42,9 @@
 <%= hidden_field_tag :vehicle_id, @vehicle.id%><br />
 <%= submit_tag "Send message" %>
 <% end %>
-
-
-
-
-
-
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</div>
 <script>
-$(document).ready(function(){
-   $("#hide").click(function(){
-       $("p").hide();
-   });
-   $("#show").click(function(){
-       $("p").show();
-   });
-});
+  $("#contact-form").onclick(function() {
+  $("#contact-form").slideDown(300);
+  });
 </script>
-<p>If you click on the "Hide" button, I will disappear.</p><button id="hide">Hide</button>
-<button id="show">Show</button>
