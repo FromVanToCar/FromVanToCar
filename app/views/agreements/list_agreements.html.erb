@@ -1,6 +1,6 @@
-<table>
+<table class="table">
  <thead>
-   <tr>
+   <tr class="table-active">
         <th>User</th>
         <th>Kind of vehicle</th>
         <th>Message</th>
@@ -13,19 +13,19 @@
  <tbody>
     <%@user.vehicles.each do |vehicle|%>
     <%vehicle.agreements.each do |agreement|%>
-    <tr>
-       <td><%= "------" %></td>
-       <td><%= agreement.vehicle %></td>
-       <td><%= agreement.message %></td>
-       <td><%= agreement.detail %></td>
-       <td><%= agreement.date %></td>
+    <tr class="table-secondary">
+       <td class="bg-primary"><%= "@user" %></td>
+       <td class="bg-success"><%= agreement.vehicle.kind_of_vehicle %></td>
+       <td class="bg-warning"><%= agreement.message %></td>
+       <td class="bg-danger"><%= agreement.detail %></td>
+       <td class="bg-info"><%= agreement.date %></td>
        <td><%= image_tag vehicle.photo.url, size:30 if vehicle.photo.url %></td>
        
        <td><%= link_to 'Show', vehicle %></td>
        <p><%=agreement.message%></p>
        <%if current_user == vehicle.user%>
          <td><%= link_to 'Edit', edit_vehicle_path(vehicle) %></td>
-         <td><%= link_to 'Destroy', vehicle, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to 'Destroy', agreement.message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        <% end %>
     </tr>
         
