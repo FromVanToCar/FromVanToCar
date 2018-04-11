@@ -7,16 +7,26 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Istok+Web">
+    <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
+
+
+
     <style>
+      .money {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 15px;
+      }
       body {
-        font-family: 'Boogaloo', cursive;;
-        font-size: 22px;
+        font-family: 'Khand', sans-serif;
+        font-size: 20px;
       }
       h1 {
-    font-family: 'Barrio', cursive;
+        font-family: 'Barrio', cursive;
       }
+      
     </style>
 
   </head>
@@ -42,7 +52,7 @@
           <a ><%= link_to "Vehicles", vehicles_path, class:"nav-link"%></a>
         </li>
         <li class="nav-item">
-          <a><%= link_to 'Insert a new vehicle', new_vehicle_path, class:"nav-link" %></a>
+          <a><%= link_to 'Add a new vehicle', new_vehicle_path, class:"nav-link" %></a>
         </li>
         </ul>
         <ul class="nav navbar-nav ml-auto">          
@@ -50,10 +60,12 @@
     <div class="btn-group">
       <button class="btn btn-default btn-lg dropdown-toggle" type="button" 
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%=image_tag current_user.photo.url || "srxcuadrado.png", size:40 if user_signed_in?%>
         User zone <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
         <% if user_signed_in? %>
+          <ul><li><%= link_to "Manage requests", myagreements_path%></li></ul>
           <ul><li><%= link_to "Edit profile", edit_user_registration_path%></li></ul>
           <ul><li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li></ul>
         <% else %>

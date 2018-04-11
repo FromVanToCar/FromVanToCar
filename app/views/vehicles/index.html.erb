@@ -12,7 +12,7 @@
         <div class="card-body">
           <h5 class="card-title"><%=vehicle.kind_of_vehicle%></h5>
           <p class="card-text"><%=vehicle.description%></p>
-          <h6 class="card-text alert alert-light"><%=vehicle.price_hour%>€</h6>
+          <h6 class="card-text alert alert-light money"><%=vehicle.price_hour%>€</h6>
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label>
               <%= link_to 'Show', vehicle, class:"btn btn-secondary active", method: :get %>

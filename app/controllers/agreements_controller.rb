@@ -27,4 +27,9 @@ class AgreementsController < ApplicationController
         @user = current_user
 
     end
+
+    def destroy
+        Agreement.find(params[:id]).destroy
+        redirect_to myagreements_path
+    end
 end
