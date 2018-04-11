@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180409102018) do
+ActiveRecord::Schema.define(version: 20180411081508) do
+
+  create_table "agreements", force: :cascade do |t|
+    t.text "message"
+    t.string "detail"
+    t.datetime "date"
+    t.integer "user_id"
+    t.integer "vehicle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_agreements_on_user_id"
+    t.index ["vehicle_id"], name: "index_agreements_on_vehicle_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
