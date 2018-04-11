@@ -72,3 +72,6 @@ gem 'bootstrap4-datetime-picker-rails'
 
 # Figaro
 gem 'figaro'
+
+# Awesome
+gem "font-awesome-rails"

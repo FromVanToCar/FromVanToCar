@@ -25,7 +25,7 @@
 </p>
 
 <br>
-<button onclick="contact-form()">Contact</button>
+<button id="contact-button">Contact</button>
 </br>
 </br>
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
@@ -44,7 +44,7 @@
 <% end %>
 </div>
 <script>
-  $("#contact-form").onclick(function() {
-  $("#contact-form").slideDown(300);
+  $("#contact-button").click(function() {
+     $("#contact-form").slideDown(300);
   });
 </script>
