@@ -2,6 +2,7 @@
 <html>
 
   <head>
+    <!-- TONTO EL QUE LO LEA :) -->
     <title>FromVanToCar</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +14,8 @@
     <link href="https://fonts.googleapis.com/css?family=Unica+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Khand" rel="stylesheet">
 
-
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style>
       .money {
@@ -66,9 +68,9 @@
       </button>
       <ul class="dropdown-menu">
         <% if user_signed_in? %>
-          <li><%= link_to "Manage requests", myagreements_path, class:"btn btn-secondary"%></li>
-          <li><%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-secondary"%></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-danger", method: :delete %></li>
+          <li><%= link_to "Manage requests", myagreements_path, class:"btn btn-secondary d-flex justify-content-end"%></li>
+          <li><%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-secondary d-flex justify-content-end"%></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-danger d-flex justify-content-end", method: :delete %></li>
         <% else %>
           <li><%= link_to "Log in", new_user_session_path, class:"btn btn-success"%></li>
           <li><%= link_to "Sign in", new_user_registration_path, class:"btn btn-primary"%></li>
@@ -81,9 +83,6 @@
 
     <%= yield %>
     </div>
-
-
-
 
    <div id="wrapper" class="col-md-12"> 
     <div id="footer-zone"> 
@@ -163,10 +162,9 @@
 </footer>
 <!--/.Footer-->
 
+    </div>
+    </div>
 
-
-    </div> 
-  </div> 
 
 
   </body>

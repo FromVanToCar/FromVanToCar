@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Vehicles</h1>
+<%=form_tag vehicles_path, method: :get do%>
+<div class="input-group mb-3">
+  <%= text_field_tag :q, nil, class:"form-control", placeholder:"Enter the kind of vehicle"%>
+  <div class="input-group-append">
+    <%= submit_tag "Search!", class:"btn btn-secondary"%>
+  </div>
+</div>
+<%end%>
+
 <div class="row">
+<% if @vehicles.blank? %>
+  <p> 0 results </p>
+<%else%> 
   <% @vehicles.each do |vehicle| %>
   <div class="col-md-4 mx-auto">
       <div class="card mb-4 mr-4" style="width: auto; heigth: auto;">
@@ -29,12 +41,14 @@
         </div>
         <div class="card-footer text-muted">
         <%user_pic = vehicle.user.photo.url || "srxcuadrado.png"%>
-        <%=image_tag user_pic, size:40 %><%=  vehicle.user.name%>
+        <%=image_tag user_pic, class:"rounded-circle", size:40 %><%=  vehicle.user.name%>
         </div>
       </div>
-            </div>
+    </div>
 
   <%end%>
+  <%end%>
+ 
 </div>
 
 

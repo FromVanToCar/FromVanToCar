@@ -5,7 +5,12 @@ class VehiclesController < ApplicationController
   # GET /vehicles
   # GET /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @q = params[:q]
+    if @q.blank?
+      @vehicles = Vehicle.all
+    else
+      @vehicles = Vehicle.where("kind_of_vehicle LIKE ? OR description LIKE ?", "%#{@q}%", "%#{@q}%")
+    end
   end
 
   # GET /vehicles/1
