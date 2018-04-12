@@ -6,14 +6,13 @@ With this platform people can log in as user looking for a transport or as an us
 The used technologies for this project have been:
 
 - Ruby
-- Ruby on rails
+- Ruby on Rails
 - Bootstrap 4
-- Font awesome rails
-- Figaro
+- Jquery
+- Font awesome
+- Google Fonts
 - Carrierwave
 - Devise
-- pg
-- Fog
+- PostgreSQL
 
-
-This app has been deployed in heroku server, conected with s3.
+This app has been deployed in Heroku server, conected with Amazon S3.
