@@ -5,7 +5,7 @@ With this platform people can log in as user looking for a transport or as an us
 
 The used technologies for this project have been:
 
-- Ruby
+- Ruby.
 - Ruby on Rails
 - Bootstrap 4
 - Jquery
