@@ -16,7 +16,7 @@
 <%else%> 
   <% @vehicles.each do |vehicle| %>
   <div class="col-md-4 mx-auto">
-      <div class="card mb-4 mr-4" style="width: auto; heigth: auto;">
+      <div class="card mb-4 mr-4 bg-light" style="width: auto; heigth: auto;">
         <%= link_to(vehicle) do %>
           <%vehicle_pic = vehicle.photo.url || "motocar.png"%>
           <%= image_tag vehicle_pic, class:"card-img-top", alt:"Card image cap"%>
@@ -45,6 +45,7 @@
         </div>
       </div>
     </div>
+    
 
   <%end%>
   <%end%>
