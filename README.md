@@ -9,7 +9,7 @@ The used technologies for this project have been:
 - Ruby on Rails.
 - Bootstrap 4.
 - Jquery.
-- Font awesome
+- Font awesome.
 - Google Fonts
 - Carrierwave
 - Devise
