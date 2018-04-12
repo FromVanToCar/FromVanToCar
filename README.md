@@ -10,9 +10,9 @@ The used technologies for this project have been:
 - Bootstrap 4.
 - Jquery.
 - Font awesome.
-- Google Fonts
-- Carrierwave
-- Devise
-- PostgreSQL
+- Google Fonts.
+- Carrierwave.
+- Devise.
+- PostgreSQL.
 
 This app has been deployed in Heroku server, conected with Amazon S3.
