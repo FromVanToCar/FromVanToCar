@@ -1,4 +1,4 @@
-/*
+    /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -12,22 +12,50 @@
  *
  *= require font-awesome
  */
-
-@import "bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Bangers|Barrio|Boogaloo');
-@import "font-awesome";
-body,
-html {
-    height: 100%;
-}
-
-.bg {
-    /* The image used */
-    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
-    /* Full height */
-    height: 100%;
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+    
+    @import "bootstrap";
+    @import url('https://fonts.googleapis.com/css?family=Bangers|Barrio|Boogaloo');
+    @import "font-awesome";
+    body,
+    html {
+        height: 100%;
+    }
+    
+    .bg {
+        /* The image used */
+        background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+        /* Full height */
+        height: 100%;
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .page-footer {
+        position: relative;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        padding-bottom: 0;
+    }
+    
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+    
+    #wrapper {
+        min-height: 20%;
+        position: relative;
+    }
+    
+    #footer-zone {
+        height: 50px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
