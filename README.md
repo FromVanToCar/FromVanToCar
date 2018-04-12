@@ -8,7 +8,7 @@ The used technologies for this project have been:
 - Ruby.
 - Ruby on Rails.
 - Bootstrap 4.
-- Jquery
+- Jquery.
 - Font awesome
 - Google Fonts
 - Carrierwave
