@@ -80,3 +80,6 @@ gem 'figaro'
 
 # Awesome
 gem "font-awesome-rails"
+
+# Fog
+gem 'fog'
