@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <!-- TONTO EL QUE LO LEA :) -->
     <title>FromVanToCar</title>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="author" content="Jose (@Joseclamo), Manuela(@ManuelayManuela)"/>
+    <meta name="keywords" content="moving, colaborative economy, sharing van, car rental"/>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
@@ -29,131 +29,123 @@
       h1 {
         font-family: 'Barrio', cursive;
       }
-      
     </style>
     <%= favicon_link_tag '/favi.png' %>
-    </head>
+  </head>
 
   <body>
+    <!-- Inicio nav-bar -->   
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    
-    <!-- logo -->
-    
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- logo -->
       <%= link_to(root_path) do %>
         <%= image_tag "logo.png", class:"navbar-brand", widt:"40", height:"40", alt:"" %>
       <%end%>
-
-
-    
-    <!-- enlaces -->
-    <div class="collapse navbar-collapse" id="opciones">  
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a><%= link_to 'Home', root_path, class:"nav-link" %></a>
-        </li>
-        <li class="nav-item">
-          <a ><%= link_to "Vehicles", vehicles_path, class:"nav-link"%></a>
-        </li>
-        <li class="nav-item">
-          <a><%= link_to 'Add a new vehicle', new_vehicle_path, class:"nav-link" %></a>
-        </li>
+   
+    <!-- links -->
+      <div class="collapse navbar-collapse" id="opciones">  
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a><%= link_to 'Home', root_path, class:"nav-link" %></a>
+          </li>
+          <li class="nav-item">
+            <a ><%= link_to "Vehicles", vehicles_path, class:"nav-link"%></a>
+          </li>
+          <li class="nav-item">
+            <a><%= link_to 'Add a new vehicle', new_vehicle_path, class:"nav-link" %></a>
+          </li>
+          </ul>
+          <ul class="nav navbar-nav ml-auto">          
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-default btn-lg dropdown-toggle" type="button" 
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%=image_tag current_user.photo.url || "srxcuadrado.png", class:"rounded-circle", size:40 if user_signed_in?%>
+          User zone <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+          <% if user_signed_in? %>
+            <li><%= link_to "Manage requests", myagreements_path, class:"btn btn-secondary d-flex justify-content-end"%></li>
+            <li><%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-secondary d-flex justify-content-end"%></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-danger d-flex justify-content-end", method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Log in", new_user_session_path, class:"btn btn-success"%></li>
+            <li><%= link_to "Sign in", new_user_registration_path, class:"btn btn-primary"%></li>
+          <% end %>        
         </ul>
-        <ul class="nav navbar-nav ml-auto">          
-    </div>
-    <div class="btn-group">
-      <button class="btn btn-default btn-lg dropdown-toggle" type="button" 
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%=image_tag current_user.photo.url || "srxcuadrado.png", class:"rounded-circle", size:40 if user_signed_in?%>
-        User zone <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <% if user_signed_in? %>
-          <li><%= link_to "Manage requests", myagreements_path, class:"btn btn-secondary d-flex justify-content-end"%></li>
-          <li><%= link_to "Edit profile", edit_user_registration_path, class:"btn btn-secondary d-flex justify-content-end"%></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-danger d-flex justify-content-end", method: :delete %></li>
-        <% else %>
-          <li><%= link_to "Log in", new_user_session_path, class:"btn btn-success"%></li>
-          <li><%= link_to "Sign in", new_user_registration_path, class:"btn btn-primary"%></li>
-        <% end %>        
       </ul>
-    </ul>
-</div>
- </nav>
-  <div class="container">
-
-    <%= yield %>
     </div>
+  </nav>
+  <!-- End nav-bar -->
+  <div class="container">
+    <%= yield %>
+  </div>
 
     <!--Footer-->
-<footer class="font-small bg-secondary pt-4 mt-4">
+  <footer class="font-small bg-secondary pt-4 mt-4">
     <!--Footer Links-->
     <div class="container text-center text-md-left">
-        <div class="row">
+      <div class="row">
             <!--First column-->
-            <div class="col-md-4">
-                <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Practical</h5>
-                <p>
-                  Find people near you with your that can help you with your moving 
-                  or whatever you need.</p>
-            </div>
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Practical</h5>
+            <p> Find people near you with your that can help you with your moving 
+              or whatever you need.</p>
+        </div>
             <!--/.First column-->
-            <hr class="clearfix w-100 d-md-none">
+        <hr class="clearfix w-100 d-md-none">
             <!--Second column-->
-            <div class="col-md-4">
-                <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Ecology</h5>
-                <p>For contributing to the enviroment, this collaborative system, 
-                  would avoid the massive circulation of large vehicles releasing CO2 into the atmosphere.</p>
-            </div>
+        <div class="col-md-4">
+          <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Ecology</h5>
+            <p>For contributing to the enviroment, this collaborative system, 
+               would avoid the massive circulation of large vehicles releasing CO2 into the atmosphere.</p>
+        </div>
             <!--/.First column-->
-            <hr class="clearfix w-100 d-md-none">
-            <div class="col-md-4">
-                <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Local Colaborative Economy</h5>
-                <p>It is a collaborative economy system, which is based on renting products based on
+        <hr class="clearfix w-100 d-md-none">
+          <div class="col-md-4">
+            <h5 class="text-uppercase mb-4 mt-3 font-weight-bold">Local Colaborative Economy</h5>
+              <p>It is a collaborative economy system, which is based on renting products based on
                  specific needs between neigbours and not so much on economic benefits.</p>
-            </div>
+          </div>
             <!--/.First column-->
-            <hr class="clearfix w-100 d-md-none">
-            
+            <hr class="clearfix w-100 d-md-none">      
         </div>
     </div>
-   
     <!--Social buttons-->
     <div class="text-center">
-        <ul class="list-unstyled list-inline">
-            <li class="list-inline-item">
-                <a class="btn-floating btn-sm btn-fb mx-1">
-                    <i class="fa fa-facebook"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-sm btn-tw mx-1">
-                    <i class="fa fa-twitter"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-sm btn-gplus mx-1">
-                    <i class="fa fa-google-plus"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-sm btn-li mx-1">
-                    <i class="fa fa-linkedin"> </i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a class="btn-floating btn-sm btn-dribbble mx-1">
-                    <i class="fa fa-dribbble"> </i>
-                </a>
-            </li>
-        </ul>
+      <ul class="list-unstyled list-inline">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-sm btn-fb mx-1">
+            <i class="fa fa-facebook"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-sm btn-tw mx-1">
+            <i class="fa fa-twitter"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-sm btn-gplus mx-1">
+            <i class="fa fa-google-plus"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-sm btn-li mx-1">
+            <i class="fa fa-linkedin"> </i>
+          </a>
+        </li>
+          <li class="list-inline-item">
+            <a class="btn-floating btn-sm btn-dribbble mx-1">
+              <i class="fa fa-dribbble"> </i>
+            </a>
+        </li>
+      </ul>
     </div>
     <!--/.Social buttons-->
     <!--Copyright-->
     <div class="footer-copyright py-3 text-center">
-
         We humbly accept ether-donations: 0xF459C3cd0300FEc21A309d6C8F5b1D02A61bf115<br>
         © 2018 made by: <a target="_blank" href="https://github.com/Joseclamo">José</a>
          y <a target="_blank" href="https://github.com/manuelaymanuela"> Manuela</a>  -------
